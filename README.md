@@ -37,10 +37,10 @@ https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 ## Final submission links:
 
 * GitHub Repository - https://github.com/alandry110/pass-generator
-* GitHub Deployed Page - https://alandry110.github.io/my-portfolio/
+* GitHub Deployed Page - https://alandry110.github.io/pass-generator/
 
 
 ## Heres a video of how my password generator functions:
 
-![Video of Functioning Password Generator](./)
+![Video of Functioning Password Generator](./assets/images/completed-pass-generator.gif)
 

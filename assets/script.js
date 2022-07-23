@@ -18,9 +18,9 @@ var numbers = ["0","1","2","3","4","5","6","7","8","9"];
 var symbols = ["!","@","#","$","%","^","&","•","?"];
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var charLength = "";
-var selection = [];
-var userPass = "";
+var charLength = ""; // Defines the desired length of the password when user types in a number
+var selection = []; // Defines the selection of number, symbols, letters from the if conditions
+var userPass = ""; // Defines the random password that will generate based on the if conditions and the for loop
 
 function generatePassword() {
     var start = window.confirm("Click OK for questions that will lead you to a secure password.");
@@ -42,34 +42,42 @@ function generatePassword() {
     var lowerChar = window.confirm("Click OK to include lowercase letters.");
     var upperChar = window.confirm("Click OK to include uppercase letters.");
 
+    // If user clicks 'cancel' to 'specialChar' and 'numericChar', and 'lowerChar', and 'upperChar' then they will be prompted to start over
     if (!specialChar && !numericChar && !lowerChar && !upperChar) {
       alert("You need to pick at least one!")
       return "Error! Press 'Generate Password' to begin again.";
     }
     
-    if (numericChar) {
-      selection = selection.concat(numbers);
-    }
-
+    // If user clicks OK to 'specialChar' then the symbols array will pull 
     if (specialChar) {
       selection = selection.concat(symbols);
     }
 
+    // If user clicks OK to 'numericChar' then the numbers array will pull 
+    if (numericChar) {
+      selection = selection.concat(numbers);
+    }
+
+    // If user clicks OK to 'lowerChar' then the lowercase array will pull 
     if (lowerChar) {
       selection = selection.concat(lowercase);
     }
-    
+    // If user clicks OK to 'numericChar' then the uppercase array will pull 
     if (upperChar) {
       selection = selection.concat(uppercase);
     }
     
+    // This logs all of the arrays 
     console.log(selection)
-      
+    
+    // This is a for loop to increase the value each time the code block in the loop has been executed and the math.random method to return the selections the length of the desired character length.
     for (var i = 0; i < charLength; i++) {
       userPass = userPass + selection[Math.floor(Math.random() * selection.length)];
+      // This logs all of possible solutions 
       console.log(userPass)
     }
     
+    // User desired password will display in the browser
     return userPass;    
 }
    
