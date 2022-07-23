@@ -7,4 +7,4 @@ This client has access to sensitive data and would like for me to create a passw
 ## Acceptance Criteria
 For this project, I was given a set of critical requirements to satisfy the clients password needs. They are as follows:
 
-![Screenshot of acceptance criteria](./assets/images/acceptance%20criteria.png)
+![Screenshot of acceptance criteria](./assets/images/Screen%20Shot%202022-07-21%20at%209.58.58%20PM.png)

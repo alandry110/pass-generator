@@ -11,17 +11,18 @@
 //Step 5: display generated pass on page.
 
 
-// Assignment code here
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate"); 
+
 var numbers = ["0","1","2","3","4","5","6","7","8","9"];
 var symbols = ["!","@","#","$","%","^","&","•","?"];
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate"); 
-
 function generatePassword() {
+  var selection = [];
+  var finalPass = "";
   // console.log("Button is Working!")
     var askQuestions = window.confirm("Click OK for questions that will lead you to a secure password.");
       // If user clicks 'cancel' they will be prompted to start over
@@ -38,14 +39,31 @@ function generatePassword() {
         return "press 'Generate Password' to begin again.";
       }
     var specialChar = window.confirm("Click OK to include special characters.");
+      if (specialChar) {
+        selection.push(symbols);
+      }
     var numericChar = window.confirm("Click OK to include numeric characters.");
+      if (numericChar) {
+        selection.push(numbers);
+      }
     var lowerChar = window.confirm("Click OK to include lowercase letters.");
+      if (lowerChar) {
+        selection.push(lowercase);
+      }
     var upperChar = window.confirm("Click OK to include uppercase letters.");
+      if (upperChar) {
+        selection.push(uppercase);
+      }
+  
+    for (var i = 0; i < password.length; i++) {
+      finalPass += selection[Math.floor(Math.random() + selection.length)];
     
-    
+
+      return finalPass
+    }
    
 
-  return "Password will go here!";// Used to see where the password will be displayed.
+  //return "Password will go here!";// Used to see where the password will be displayed.
 }
 
 // Write password to the #password input
@@ -53,10 +71,6 @@ function writePassword() {
   var password = generatePassword(); 
   var passwordText = document.querySelector("#password"); 
 
-  //This will generate the random password 
-  //for (var i = 0; i < characters.length; i++) {
-    //final += combo[Math.floor(Math.random() + combo.length)];
-  //}
 
   passwordText.value = password;
 
